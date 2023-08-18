@@ -1,0 +1,12 @@
+
+#hwinfo read hardware file_node service
+service hwinfo /vendor/bin/hwinfo
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:hwinfo:s0
+
+on early-init
+    start hwinfo
