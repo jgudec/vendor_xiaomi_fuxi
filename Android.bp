@@ -302,6 +302,18 @@ android_app_import {
 }
 
 android_app_import {
+	name: "EuiccGoogle",
+	owner: "xiaomi",
+	apk: "proprietary/product/priv-app/EuiccGoogle/EuiccGoogle.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
+}
+
+android_app_import {
 	name: "ImsRcsService",
 	owner: "xiaomi",
 	apk: "proprietary/system_ext/app/ImsRcsService/ImsRcsService.apk",
@@ -382,10 +394,28 @@ android_app_import {
 	system_ext_specific: true,
 }
 
+android_app_import {
+	name: "goodix_sz",
+	owner: "xiaomi",
+	apk: "proprietary/odm/app/goodix_sz/goodix_sz.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	device_specific: true,
+}
+
 dex_import {
 	name: "WfdCommon",
 	owner: "xiaomi",
 	jars: ["proprietary/system/framework/WfdCommon.jar"],
+}
+
+dex_import {
+	name: "androidx.camera.extensions.impl",
+	owner: "xiaomi",
+	jars: ["proprietary/vendor/framework/androidx.camera.extensions.impl.jar"],
+	soc_specific: true,
 }
 
 dex_import {
@@ -733,15 +763,6 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
-	name: "manifest_vendor.xiaomi.hardware.miface",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.miface.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
 	name: "memtrack_qti",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/memtrack_qti.xml",
@@ -979,15 +1000,6 @@ prebuilt_etc_xml {
 	name: "vendor.xiaomi.hardware.micharge@1.0",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.hardware.micharge@1.0.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "vendor.xiaomi.hardware.miperf@1.0",
-	owner: "xiaomi",
-	src: "proprietary/vendor/etc/vintf/manifest/vendor.xiaomi.hardware.miperf@1.0.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,

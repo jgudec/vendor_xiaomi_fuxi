@@ -1,0 +1,14 @@
+
+service miwild /vendor/bin/miwild
+    class main
+    socket miwild stream 0666 root system
+    disabled
+
+on property:vendor.miwild.enabled=1
+    start miwild
+
+on property:vendor.miwild.enabled=0
+    stop miwild
+
+on post-fs-data
+    mkdir /data/vendor/miwild 0775 root system
